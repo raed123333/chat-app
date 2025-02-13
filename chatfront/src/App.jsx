@@ -1,5 +1,15 @@
+//import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/home";
+
 function App() {
-  return <div className="text-3xl text-gray-500"> hi rouda </div>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
