@@ -1,7 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { useState } from "react";
-const Login = () => {
+// eslint-disable-next-line react/prop-types
+const Login = ({ openSignup }) => {
   const [username, setUserName] = useState("");
   const [password, setpassword] = useState("");
   const handlSubmit = (e) => {
@@ -44,14 +45,16 @@ const Login = () => {
           </a>
         </div>
         <div className="mb-4">
-          <button type="submit" className="w-full bg-red-600 text-white py-2">
+          <button type="submit" className="w-full bg-blue-600 text-white py-2">
             Login
           </button>
         </div>
       </form>
       <div className="text-center">
         <span className="text-gray-700">Dont Have an Account?</span>
-        <button className="text-red-800">Sign Up</button>
+        <button className="text-blue-800" onClick={openSignup}>
+          Sign Up
+        </button>
       </div>
     </div>
   );

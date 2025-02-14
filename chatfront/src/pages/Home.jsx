@@ -6,6 +6,14 @@ import Login from "../components/Login.jsx";
 const Home = () => {
   const [isModelOpen, setIsModelOpen] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
+  const openSignup = () => {
+    setIsModelOpen(true);
+    setIsLogin(false);
+  };
+  const openLogin = () => {
+    setIsModelOpen(true);
+    setIsLogin(true);
+  };
   return (
     <div className="flex items-center justify-center h-screen bg-purple-100">
       <div
@@ -27,7 +35,11 @@ const Home = () => {
         </div>
       </div>
       <Model isModelOpen={isModelOpen} setIsModelOpen={setIsModelOpen}>
-        {isLogin ? <Login /> : <Register />}
+        {isLogin ? (
+          <Login openSignup={openSignup} />
+        ) : (
+          <Register openLogin={openLogin} />
+        )}
       </Model>
     </div>
   );
