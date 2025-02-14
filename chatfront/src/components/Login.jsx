@@ -1,9 +1,16 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import { useState } from "react";
 const Login = () => {
+  const [username, setUserName] = useState("");
+  const [password, setpassword] = useState("");
+  const handlSubmit = (e) => {
+    e.preventDefault();
+    console.log(username, password);
+  };
   return (
     <div>
-      <form action="">
+      <form onSubmit={handlSubmit}>
         <h2 className="text-2xl font-bold mb-4">Login</h2>
         <div className="mb-4">
           <label className="block text-gray-700" htmlFor="name">
@@ -13,6 +20,7 @@ const Login = () => {
             className="w-full px-3 py-2 border"
             type="text"
             placeholder="enter UserName"
+            onChange={(e) => setUserName(e.target.value)}
           />
         </div>
         <div className="mb-4">
@@ -23,6 +31,7 @@ const Login = () => {
             className="w-full px-3 py-2 border"
             type="Password"
             placeholder="Enter password"
+            onChange={(e) => setpassword(e.target.value)}
           />
         </div>
         <div className="mb-4 flex items-center justify-between">
@@ -41,7 +50,7 @@ const Login = () => {
         </div>
       </form>
       <div className="text-center">
-        <span className="text-gray-700">Don't Have an Account?</span>
+        <span className="text-gray-700">Dont Have an Account?</span>
         <button className="text-red-800">Sign Up</button>
       </div>
     </div>
