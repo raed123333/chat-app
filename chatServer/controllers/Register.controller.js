@@ -1,5 +1,5 @@
 function Register(req, res) {
-        console.log(req.body)
+        console.log(req.body);
 
 }
-export {Register}
+export default Register;
