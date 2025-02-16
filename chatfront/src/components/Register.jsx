@@ -1,14 +1,23 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
 // eslint-disable-next-line react/prop-types
 const Register = ({ openLogin }) => {
   const [username, setUserName] = useState("");
   const [password, setpassword] = useState("");
   const [file, setFile] = useState(null);
-  const handlSubmit = (e) => {
+  const handlSubmit = async (e) => {
     e.preventDefault();
-    console.log(username, password);
+    const formData = new FormData();
+    formData.append("username", username);
+    formData.append("password", password);
+    formData.append("image", file);
+    try {
+      axios.post("http://localhost:3000/chat/user/register", formData);
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <div>
@@ -50,7 +59,10 @@ const Register = ({ openLogin }) => {
           />
         </div>
         <div className="mb-4">
-          <button type="submit" className="w-full bg-blue-600 text-white py-2">
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 hover:scale-105"
+          >
             Sign Up
           </button>
         </div>

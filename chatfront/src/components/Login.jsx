@@ -45,7 +45,10 @@ const Login = ({ openSignup }) => {
           </a>
         </div>
         <div className="mb-4">
-          <button type="submit" className="w-full bg-blue-600 text-white py-2">
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 hover:scale-105"
+          >
             Login
           </button>
         </div>
