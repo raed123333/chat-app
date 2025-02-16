@@ -5,6 +5,7 @@ import { useState } from "react";
 const Register = ({ openLogin }) => {
   const [username, setUserName] = useState("");
   const [password, setpassword] = useState("");
+  const [file, setFile] = useState(null);
   const handlSubmit = (e) => {
     e.preventDefault();
     console.log(username, password);
@@ -39,6 +40,7 @@ const Register = ({ openLogin }) => {
           <label className="block text-gray-700"> Upload Image</label>
           <input
             type="file"
+            onChange={(e) => setFile(e.target.files[0])}
             className="border p-2 block w-full text-sm text-gray-500
             file:mr-4 file:py-2 file:px-4
             file:rounded-full file:border-0
@@ -49,7 +51,7 @@ const Register = ({ openLogin }) => {
         </div>
         <div className="mb-4">
           <button type="submit" className="w-full bg-blue-600 text-white py-2">
-            Login
+            Sign Up
           </button>
         </div>
       </form>
